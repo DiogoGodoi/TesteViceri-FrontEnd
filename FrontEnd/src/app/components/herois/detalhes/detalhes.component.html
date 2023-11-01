@@ -1,0 +1,57 @@
+<div class="col-12 d-flex justify-content-center">
+    <div class="col-11 card text-center my-4 p-4">
+        <h2>Detalhes</h2>
+    </div>
+</div>
+<div class="col-12 d-flex justify-content-center align-items-center">
+  <div class="row col-12 d-flex justify-content-center ">
+    <div class="card col-5" style="margin: 10px;">
+      <div class="card-body text-center">
+        <select class="form-select" hidden [(ngModel)]="valorHeroi">
+          <option value="{{herois?.id}}"></option>
+        </select>
+        <h5 class="card-title">Heroi</h5>
+        <p class="card-text">Nome: {{herois?.nome}}</p>
+        <p class="card-text">Heroi: {{herois?.nomeHeroi}}</p>
+        <p class="card-text">Nascimento: {{herois?.dataNascimento}}</p>
+        <p class="card-text">Altura: {{herois?.altura}}</p>
+        <p class="card-text">Peso: {{herois?.peso}}</p>
+        <div class="d-flex justify-content-around flex-wrap">
+          <a class="btn-primary btn" routerLink="/herois/update/{{herois?.id}}">Alterar</a>
+          <a class="btn-danger btn" (click)="remover()">Excluir</a>
+          <a class="btn-info btn text-white" (click)="Voltar()">Voltar</a>
+        </div>
+      </div>
+      <hr>
+        <div class="input-group-text text-white mb-3">
+          <select class="form-select" [(ngModel)]="valor">
+            <option  *ngFor="let i of poderes" value="{{i.id}}">{{i.superPoder}}</option>
+          </select>
+          <button class="btn btn-success mx-2" (click)="adcionarPoder()">Adcionar</button>
+        </div>
+    </div>
+    <div class="card col-6" style="margin: 10px;">
+      <div class="card-body text-center">
+        <div class="card-header">
+          <h5 class="card-title">Poderes</h5>
+        </div>
+        <ul class="list-group"  *ngFor="let i of heroisPoderes">
+          <li class="list-group-item">Poder: {{i.superPoder?.superPoder}} | Descrição: {{i.superPoder?.descricao}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-12 d-flex justify-content-center">
+    <div class="col-6 mt-3" *ngIf="resposta == false">
+      <div class="alert alert-danger text-center" role="alert">
+        {{mensagem}}
+      </div>
+    </div>
+    <div class="col-6 mt-3" *ngIf="resposta == true">
+      <div class="alert alert-success text-center" role="alert">
+        <p>{{mensagem}}</p>
+      </div>
+    </div>
+</div>

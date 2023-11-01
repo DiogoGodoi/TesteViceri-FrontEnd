@@ -1,0 +1,32 @@
+<div class="col-12 d-flex justify-content-center">
+    <div class="col-5 card text-center my-4 p-4">
+        <h2>Detalhes</h2>
+    </div>
+</div>
+<div class="col-12 d-flex justify-content-center align-items-center">
+    <div class="card col-5">
+        <div class="card-body text-center">
+            <h5 class="card-title">Heroi</h5>
+            <p class="card-text">Nome: {{poderes?.superPoder}}</p>
+            <p class="card-text">Heroi: {{poderes?.descricao}}</p>
+            <div class="d-flex justify-content-around">
+                <a class="btn-success btn text-white">Poderes</a>
+                <a class="btn-primary btn" routerLink="/poderes/update/{{poderes?.id}}">Alterar</a>
+                <a class="btn-danger btn" (click)="remover()">Excluir</a>
+                <a class="btn-info btn text-white" (click)="Voltar()">Voltar</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-12 d-flex justify-content-center">
+    <div class="col-6 mt-3" *ngIf="resposta == false">
+      <div class="alert alert-danger text-center" role="alert">
+        Bad request
+      </div>
+    </div>
+    <div class="col-6 mt-3" *ngIf="resposta == true">
+      <div class="alert alert-success text-center" role="alert">
+        <p>Removido com sucesso</p>
+      </div>
+    </div>
+</div>

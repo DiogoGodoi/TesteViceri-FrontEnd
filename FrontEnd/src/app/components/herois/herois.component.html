@@ -1,0 +1,50 @@
+<div class="col-12 card text-center my-4 p-4">
+  <h2>Lista de herois</h2>
+</div>
+<table class="table table-striped table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Nome de heroi</th>
+        <th scope="col">Nascimento</th>
+        <th scope="col">Altura</th>
+        <th scope="col">Peso</th>
+        <th scope="col">Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of herois">
+        <th scope="row">{{i.id}}</th>
+        <td>{{i.nome}}</td>
+        <td>{{i.nomeHeroi}}</td>
+        <td>{{i.dataNascimento}}</td>
+        <td>{{i.altura}}</td>
+        <td>{{i.peso}}</td>
+        <td>
+          <button class="btn btn-primary" routerLink="/detalhes/{{i.id}}">Detalhes</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="col-12 d-flex justify-content-center">
+    <div class="input-group">
+      <div class="input-group-text bg-primary text-white">Pesquisar</div>
+      <input type="text" class="form-control" [(ngModel)]="id" placeholder="Digite o id">
+      <button class="btn btn-success mx-2" (click)="pesquisar()">Pesquisar</button>
+      <button class="btn btn-info text-white mx-2" (click)="atualizarPagina()">Exibir</button>
+      <button class="btn btn-primary mx-2" (click)="navegarCriarHeroi()">Cadastrar novo</button>
+    </div>
+  </div>
+  <div class="col-12 d-flex justify-content-center">
+    <div class="col-6 mt-3" *ngIf="resposta == false">
+      <div class="alert alert-danger text-center" role="alert">
+        Não localizado
+      </div>
+    </div>
+    <div class="col-6 mt-3" *ngIf="resposta == true">
+      <div class="alert alert-success text-center" role="alert">
+        <p>Registro encontrado</p>
+      </div>
+    </div>
+  </div>

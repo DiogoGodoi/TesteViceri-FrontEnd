@@ -1,0 +1,49 @@
+<div class="col-12 d-flex justify-content-center">
+  <div class="col-5 card text-center my-4 p-4">
+      <h2>Alterar heroi</h2>
+  </div>
+</div>
+<div class="col-12 d-flex justify-content-center">
+    <div class="col-4">
+      <div class="col-12 row card">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="herois.nome">
+        </div>
+        <div class="mb-3">
+          <label for="nomeHeroi" class="form-label">Nome do Herói</label>
+          <input type="text" class="form-control" id="nomeHeroi" name="nomeHeroi" [(ngModel)]="herois.nomeHeroi">
+        </div>
+        <div class="mb-3">
+          <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+          <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" [(ngModel)]="herois.dataNascimento">
+        </div>
+        <div class="mb-3">
+          <label for="altura" class="form-label">Altura</label>
+          <input type="number" class="form-control" id="altura" name="altura" [(ngModel)]="herois.altura">
+        </div>
+        <div class="mb-3">
+          <label for="peso" class="form-label">Peso</label>
+          <input type="number" class="form-control" id="peso" name="peso" [(ngModel)]="herois.peso">
+        </div>
+      </div>
+      <div class="d-flex justify-content-around mt-2">
+        <button class="btn btn-success" (click)="update()">Alterar</button>
+        <button class="btn btn-info text-white" (click)="Voltar()">Voltar</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 d-flex justify-content-center">
+    <div class="col-6 mt-3" *ngIf="resposta == false">
+      <div class="alert alert-danger text-center" role="alert">
+        Bad request
+      </div>
+    </div>
+    <div class="col-6 mt-3" *ngIf="resposta == true">
+      <div class="alert alert-success text-center" role="alert">
+        <p>Alterado com sucesso</p>
+      </div>
+    </div>
+</div>
+  
+  
